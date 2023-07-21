@@ -29,6 +29,9 @@
         yabai -m rule --add app='Activity Monitor' manage=off layer=above
         yabai -m rule --add app='Finder' manage=off layer=above
         yabai -m rule --add app='^System Information$' manage=off layer=above
+        # bar configuration
+        yabai -m config external_bar all:0:39
+        yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
       '';                                 # Specific rules for what is managed and layered.
     };
   };

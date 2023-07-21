@@ -30,7 +30,6 @@
 
 ## Configs
 
-- https://github.com/FelixKratz/dotfiles/tree/master
 - https://github.com/mitchellh/nixos-config
 - https://github.com/MatthiasBenaets/nixos-config
 - https://github.com/dustinlyons/nixos-config

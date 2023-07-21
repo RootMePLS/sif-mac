@@ -16,25 +16,20 @@
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      # nixgl = {                                                             # OpenGL
-      #   url = "github:guibou/nixGL";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      # };
+      emacs-overlay = {                                                     # Emacs Overlays
+        url = "github:nix-community/emacs-overlay";
+        flake = false;
+      };
 
-      # emacs-overlay = {                                                     # Emacs Overlays
-      #   url = "github:nix-community/emacs-overlay";
-      #   flake = false;
-      # };
-
-      # doom-emacs = {                                                        # Nix-community Doom Emacs
-      #   url = "github:nix-community/nix-doom-emacs";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      #   inputs.emacs-overlay.follows = "emacs-overlay";
-      # };
+      doom-emacs = {                                                        # Nix-community Doom Emacs
+        url = "github:nix-community/nix-doom-emacs";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.emacs-overlay.follows = "emacs-overlay";
+      };
 
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, nur, nixgl, dslr, doom-emacs, hyprland, plasma-manager, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
     let                                                                     # Variables that can be used in the config files.
       user = "fishhead";
       location = "$HOME/.setup";

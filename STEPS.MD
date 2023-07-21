@@ -14,3 +14,8 @@ cd ~/.setup
 nix build .#darwinConfigurations.dm-laptop.system
 ./result/sw/bin/darwin-rebuild switch --flake .#dm-laptop
 ```
+
+## Rebuild
+
+- darwin-rebuild switch --flake .#dm-laptop
+- Put `~/.nix-profile/bin` on my PATH

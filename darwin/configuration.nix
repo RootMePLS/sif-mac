@@ -1,10 +1,11 @@
 { config, pkgs, user, ... }:
 
 {
-  # imports = [
-  #  ./modules/yabai.nix
-  #  ./modules/skhd.nix
-  # ];
+  imports = [
+   ./modules/yabai.nix
+   ./modules/skhd.nix
+   ./modules/sketchybar.nix
+  ];
 
   users.users."${user}" = {               # macOS user
     home = "/Users/${user}";
@@ -65,10 +66,32 @@
     };
     brews = [
       "wireguard-tools"
+      # sketchybar
+      "sketchybar" # macos bar alternative
+      "ifstat" # network
     ];
     casks = [
       "parsec"
       "plex-media-player"
+      "zoom"
+      "slack"
+    ];
+    taps = [
+      # default
+      "homebrew/bundle"
+      "homebrew/cask"
+      "homebrew/cask-drivers"
+      "homebrew/cask-fonts"
+      "homebrew/core"
+      "homebrew/services"
+      # custom
+      "cmacrae/formulae" # spacebar
+      "koekeishiya/formulae" # yabai
+      "FelixKratz/formulae" # sketchybar
+      "earthly/earthly"
+      "gardener/tap"
+      "danielgtaylor/restish"
+      "samwho/spacer"
     ];
   };
 
