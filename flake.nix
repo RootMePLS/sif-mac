@@ -6,6 +6,18 @@
       nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";                     # Default Stable Nix Packages
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
 
+      nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+      # Optional: Declarative tap management
+      homebrew-core = {
+        url = "github:homebrew/homebrew-core";
+        flake = false;
+      };
+      homebrew-cask = {
+        url = "github:homebrew/homebrew-cask";
+        flake = false;
+      };
+
       home-manager = {                                                      # User Package Management
         url = "github:nix-community/home-manager/release-23.05";
         inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +41,7 @@
 
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
     let                                                                     # Variables that can be used in the config files.
       user = "fishhead";
       location = "$HOME/.setup";

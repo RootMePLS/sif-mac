@@ -24,6 +24,7 @@
 
       initExtra = ''
         # Spaceship
+        # eval "$(/opt/homebrew/bin/brew shellenv)"
         source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
         autoload -U promptinit; promptinit
         pfetch
