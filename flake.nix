@@ -1,10 +1,23 @@
 {
+  # Based on https://github.com/ryan4yin/nix-darwin-kickstarter
   description = "My Darwin Flake Configuration";
 
-  inputs =                                                                  # All flake references used to build my NixOS setup. These are dependencies.
+  # the nixConfig here only affects the flake itself, not the system configuration!
+  nixConfig = {
+    experimental-features = [ "nix-command" "flakes" ];
+
+    substituters = [
+      "https://cache.nixos.org"
+    ];
+  };
+
+  inputs =
     {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";                     # Default Stable Nix Packages
-      nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";         # Unstable Nix Packages
+      # Default Stable Nix Packages
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+
+      # Unstable Nix Packages
+      nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
       nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
@@ -18,22 +31,26 @@
         flake = false;
       };
 
-      home-manager = {                                                      # User Package Management
+      # home-manager, used for managing user configuration
+      home-manager = {
         url = "github:nix-community/home-manager/release-23.05";
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
+      # MacOS Package Management
       darwin = {
-        url = "github:lnl7/nix-darwin/master";                              # MacOS Package Management
+        url = "github:lnl7/nix-darwin/master";
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
-      emacs-overlay = {                                                     # Emacs Overlays
+      # Emacs Overlays
+      emacs-overlay = {
         url = "github:nix-community/emacs-overlay";
         flake = false;
       };
 
-      doom-emacs = {                                                        # Nix-community Doom Emacs
+       # Nix-community Doom Emacs
+      doom-emacs = {
         url = "github:nix-community/nix-doom-emacs";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.emacs-overlay.follows = "emacs-overlay";
@@ -42,23 +59,60 @@
     };
 
   outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
-    let                                                                     # Variables that can be used in the config files.
-      user = "fishhead";
+    # Variables that can be used in the config files.
+    let
       location = "$HOME/.setup";
-    in                                                                      # Use above variables in ...
+      username = "fishhead";
+      hostname = "dmiroshnichenko-laptop";
+      system = "aarch64-darwin";
+    in
     {
-      darwinConfigurations = (                                              # Darwin Configurations
+      
+      darwinConfigurations = (
         import ./darwin {
           inherit (nixpkgs) lib;
           inherit inputs nixpkgs nixpkgs-unstable home-manager darwin user nix-homebrew homebrew-core homebrew-cask;
         }
       );
 
-      # homeConfigurations = (                                                # Non-NixOS configurations
-      #   import ./nix {
-      #     inherit (nixpkgs) lib;
-      #     inherit inputs nixpkgs nixpkgs-unstable home-manager nixgl user;
-      #   }
-      # );
+      # Darwin Configurations
+      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+        modules = [
+          # ./modules/nix-core.nix
+          # ./modules/system.nix
+          # ./modules/apps.nix
+
+          # ./modules/host-users.nix
+
+          # home manager
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = inputs;
+            home-manager.users.${username} = import ./darwin/home.nix;
+          }
+
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              # Install Homebrew under the default prefix
+              enable = true;
+
+              # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
+              enableRosetta = false;
+
+              # User owning the Homebrew prefix
+              user = username;
+
+              # Automatically migrate existing Homebrew installations
+              autoMigrate = true;
+            };
+          }
+        ];
+      };
+
+      # nix codee formmater
+      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     };
 }

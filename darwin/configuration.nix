@@ -80,7 +80,6 @@
       # default
       "homebrew/bundle"
       "homebrew/cask"
-      "homebrew/cask-drivers"
       "homebrew/cask-fonts"
       "homebrew/core"
       "homebrew/services"
