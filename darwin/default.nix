@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, darwin, user, ...}:
+{ lib, inputs, nixpkgs, home-manager, darwin, user, nix-homebrew, homebrew-core, homebrew-cask, ...}:
 
 let
   system = "x86_64-darwin";                                 # System architecture
