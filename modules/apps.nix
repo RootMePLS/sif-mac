@@ -50,6 +50,9 @@
     masApps = {
       # TODO Feel free to add your favorite apps here.
       "1password" = 1333542190;
+      "Tailscale" = 1475387142;
+      "Slack" = 803453959;
+      "Telegram" = 747648890;
       # Xcode = 497799835;
     };
 
@@ -60,6 +63,7 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
+      
       # custom
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
@@ -82,12 +86,11 @@
       "visual-studio-code"
 
       # IM & audio & remote desktop & meeting
-      "telegram"
       "discord"
+      "microsoft-teams"
 
       "anki"
       "clashx"    # proxy tool
-      "iina"      # video player
       "openinterminal-lite"  # open current folder in terminal
       "raycast"   # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
       "iglance"   # beautiful system monitor
