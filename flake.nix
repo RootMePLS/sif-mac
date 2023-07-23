@@ -79,10 +79,9 @@
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;
         modules = [
-          # ./modules/nix-core.nix
-          # ./modules/system.nix
+          ./modules/nix-core.nix
+          ./modules/system.nix
           # ./modules/apps.nix
-
           # ./modules/host-users.nix
 
           # home manager
@@ -91,7 +90,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = inputs;
-            home-manager.users.${username} = import ./darwin/home.nix;
+            home-manager.users.${username} = import ./home;
           }
 
           nix-homebrew.darwinModules.nix-homebrew
