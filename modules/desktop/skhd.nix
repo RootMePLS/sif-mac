@@ -5,8 +5,7 @@
     skhd = {                              # Hotkey daemon
       enable = true;
       package = pkgs.skhd;
-      skhdConfig = let yabai = "/opt/homebrew/bin/yabai"; in
-      ''
+      skhdConfig = ''
         # alt + a / u / o / s are blocked due to umlaute
 
         # focus window
@@ -26,12 +25,6 @@
 
         # make floating window fill left-half of screen
         shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
-
-        # create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
-        shift + cmd - n : yabai -m space --create && \
-                          index="$(yabai -m query --spaces --display | jq 'map(select(."is-native-fullscreen" == false))[-1].index')" && \
-                          yabai -m window --space "${index}" && \
-                          yabai -m space --focus "${index}"
 
         # fast focus desktop
         cmd + alt - x : yabai -m space --focus recent
