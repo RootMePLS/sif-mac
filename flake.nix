@@ -68,15 +68,16 @@
     in
     {
       
-      darwinConfigurations = (
-        import ./darwin {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs nixpkgs-unstable home-manager darwin user nix-homebrew homebrew-core homebrew-cask;
-        }
-      );
+      # darwinConfigurations = (
+      #   import ./darwin {
+      #     inherit (nixpkgs) lib;
+      #     inherit inputs nixpkgs nixpkgs-unstable home-manager darwin user nix-homebrew homebrew-core homebrew-cask;
+      #   }
+      # );
 
       # Darwin Configurations
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+        inherit system;
         modules = [
           # ./modules/nix-core.nix
           # ./modules/system.nix

@@ -1,7 +1,7 @@
 { lib, inputs, nixpkgs, home-manager, darwin, user, nix-homebrew, homebrew-core, homebrew-cask, ...}:
 
 let
-  system = "x86_64-darwin";                                 # System architecture
+  system = "aarch64-darwin";                                 # System architecture
 in
 {
   dm-laptop = darwin.lib.darwinSystem {                       # MacBook8,1 "Core M" 1.2 12" (2015) A1534 ECM2746 profile
