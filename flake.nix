@@ -84,6 +84,8 @@
           ./modules/system.nix
           ./modules/apps.nix
           ./modules/host-users.nix
+          ./modules/desktop
+
 
           #  Manage a user environment using Nix.
           #  NOTE: Your can find all available options in:
