@@ -27,6 +27,7 @@
 - https://cmacr.ae/blog/keeping-up-appearances-non-native-macos-light-dark-mode/
 - https://cmacr.ae/blog/managing-firefox-on-macos-with-nix/
 - https://the-empire.systems/linux-macos-setup
+- 
 
 ## Configs
 
@@ -35,6 +36,10 @@
 - https://github.com/dustinlyons/nixos-config
 - https://github.com/malob/nixpkgs/tree/master/darwin
 - https://github.com/srid/nixos-config
+
+### Discover
+
+- https://github.com/tejing1/nixos-config/blob/master/flake.nix
 
 ```text
 only use Homebrew for ‘Casks’ (GUI .apps)— `brew cask` subcommand

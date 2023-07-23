@@ -1,7 +1,15 @@
 { username, ... }:
 
 {
-  # import sub modules
+  ##########################################################################
+  # 
+  #  Import sub modules
+  #
+  #  NOTE: Your can find all available options for "programs." in:
+  #    https://rycee.gitlab.io/home-manager/options.html
+  # 
+  #
+  ##########################################################################
   imports = [
     ./bash.nix
     ./core.nix

@@ -82,10 +82,12 @@
         modules = [
           ./modules/nix-core.nix
           ./modules/system.nix
-          # ./modules/apps.nix
+          ./modules/apps.nix
           ./modules/host-users.nix
 
-          # home manager
+          #  Manage a user environment using Nix.
+          #  NOTE: Your can find all available options in:
+          #  https://nix-community.github.io/home-manager/nix-darwin-options.html
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -96,6 +98,8 @@
             home-manager.users.${username} = import ./home;
           }
 
+          # Module to install Homebrew package manager.
+          # https://github.com/zhaofengli/nix-homebrew
           nix-homebrew.darwinModules.nix-homebrew
           {
             nix-homebrew = {

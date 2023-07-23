@@ -7,7 +7,6 @@
   #  NOTE: Your can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
   # 
-  # TODO Fell free to modify this file to fit your needs.
   #
   ##########################################################################
 
@@ -20,6 +19,10 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
+    ansible
+    emacs
+    fd
+    ripgrep
   ];
 
   # Environment variables
@@ -46,15 +49,21 @@
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
       # TODO Feel free to add your favorite apps here.
-
-      Xcode = 497799835;
+      "1password" = 1333542190;
+      # Xcode = 497799835;
     };
 
     taps = [
+      # default
+      "homebrew/core"
       "homebrew/cask"
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
+      # custom
+      "cmacrae/formulae" # spacebar
+      "koekeishiya/formulae" # yabai
+      "FelixKratz/formulae" # sketchybar
     ];
 
     # `brew install`
