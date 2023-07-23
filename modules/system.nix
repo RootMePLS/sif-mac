@@ -19,14 +19,14 @@
     '';
 
     defaults = {
-      # menuExtraClock.Show24Hour = true;  # show 24 hour clock
+      menuExtraClock.Show24Hour = true;  # show 24 hour clock
       
       # customize dock
       dock = {
         autohide = true;
         show-recents = false;  # disable recent apps
 
-        # customize Hot Corners(触发角, 鼠标移动到屏幕角落时触发的动作)
+        # customize Hot Corners
         wvous-tl-corner = 2;  # top-left - Mission Control
         wvous-tr-corner = 13;  # top-right - Lock Screen
         wvous-bl-corner = 3;  # bottom-left - Application Windows
@@ -45,8 +45,7 @@
 
       # customize trackpad
       trackpad = {
-        # tap - 轻触触摸板, click - 点击触摸板
-        Clicking = true;  # enable tap to click(轻触触摸板相当于点击)
+        Clicking = true;  # enable tap to click
         TrackpadRightClick = true;  # enable two finger right click
         TrackpadThreeFingerDrag = true;  # enable three finger drag
       };
@@ -148,11 +147,6 @@
   environment.shells = [
     pkgs.zsh
   ];
-
-  # Set your time zone.
-  # comment this due to the issue:
-  #   https://github.com/LnL7/nix-darwin/issues/359
-  # time.timeZone = "Asia/shanghai";
 
   # Fonts
   fonts = {
