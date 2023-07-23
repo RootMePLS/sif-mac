@@ -23,6 +23,7 @@
     emacs
     fd
     ripgrep
+    pfetch
   ];
 
   # Environment variables
@@ -63,7 +64,7 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       "homebrew/cask-versions"
-      
+
       # custom
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai

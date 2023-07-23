@@ -37,9 +37,10 @@
 - https://github.com/malob/nixpkgs/tree/master/darwin
 - https://github.com/srid/nixos-config
 
-### Discover
+### Explore
 
 - https://github.com/tejing1/nixos-config/blob/master/flake.nix
+- https://sr.ht/~cfeeley/dotfiles/
 
 ```text
 only use Homebrew for ‘Casks’ (GUI .apps)— `brew cask` subcommand
