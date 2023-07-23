@@ -1,17 +1,6 @@
 
-{ ... } @ args:
+{ hostname, username, ... } @ args:
 
-#############################################################
-#
-#  Host & Users configuration
-#
-#############################################################
-
-# let
-#   # TODO change this to your hostname
-#   hostname = "your-hostname";
-#   username = "xxx";
-# in
 {
   networking.hostName = hostname;
   networking.computerName = hostname;

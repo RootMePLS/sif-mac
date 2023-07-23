@@ -78,18 +78,21 @@
       # Darwin Configurations
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;
+        specialArgs = { inherit username hostname; };
         modules = [
           ./modules/nix-core.nix
           ./modules/system.nix
           # ./modules/apps.nix
-          # ./modules/host-users.nix
+          ./modules/host-users.nix
 
           # home manager
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = inputs;
+            home-manager.extraSpecialArgs = {
+              inherit inputs username hostname;
+            };
             home-manager.users.${username} = import ./home;
           }
 

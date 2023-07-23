@@ -1,9 +1,5 @@
-{ ... }:
+{ username, ... }:
 
-let
-  # please replace xxx with your username
-  username = "xxx";
-in
 {
   # import sub modules
   imports = [
