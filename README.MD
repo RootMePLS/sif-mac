@@ -10,11 +10,11 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
 git clone https://github.com/fishhead108/sif-mac ~/.setup
 cd ~/.setup
-nix build .#darwinConfigurations.dm-laptop.system
-./result/sw/bin/darwin-rebuild switch --flake .#dm-laptop
+nix build .#darwinConfigurations.dmiroshnichenko-laptop.system
+./result/sw/bin/darwin-rebuild switch --flake .#dmiroshnichenko-laptop
 ```
 
 ## Rebuild
 
-- darwin-rebuild switch --flake .#dm-laptop
+- darwin-rebuild switch --flake .#dmiroshnichenko-laptop
 - Put `~/.nix-profile/bin` on my PATH
