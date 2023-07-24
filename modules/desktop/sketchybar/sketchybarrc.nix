@@ -1,4 +1,4 @@
-{ username, ... }:
+{ config, pkgs, username, inputs, ... }:
 let
   folder = "/Users/${username}/.config/sketchybar";
 in
