@@ -77,7 +77,6 @@
       "wget"  # download tool
       "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
       "httpie"  # http client
-      "sketchybar-app-font"
     ];
 
     # `brew install --cask`

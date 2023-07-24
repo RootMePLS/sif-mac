@@ -55,7 +55,7 @@ in
 
   home.file.plugins-laptop-spotify = {
     executable = true;
-    target = "\$\{folder}/plugins-laptop/spotify.sh";
+    target = "${folder}/plugins-laptop/spotify.sh";
     text = ''
       #!/usr/bin/env zsh
 
