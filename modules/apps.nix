@@ -25,6 +25,7 @@
     ripgrep
     pfetch
     alacritty
+    tmux
   ];
 
   # Environment variables
@@ -76,6 +77,7 @@
       "wget"  # download tool
       "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
       "httpie"  # http client
+      "sketchybar-app-font"
     ];
 
     # `brew install --cask`
@@ -87,7 +89,6 @@
       # IM & audio & remote desktop & meeting
       "discord"
       "microsoft-teams"
-      "mutify" # one click mute button
       "zoom"
 
       "anki"
@@ -104,13 +105,14 @@
       "visual-studio-code"
 
       "sf-symbols" # patched font for sketchybar
-      "sketchybar-app-font"
       "font-hack-nerd-font"
       "browserosaurus" # choose browser on each link
       "shottr" # screenshot tool
       "vlc" # media player
       "utterly" # background noise cancellation
       "keycastr" # show keystrokes on screen
+      "spotify"
+      "obsidian"
     ];
   };
 }
