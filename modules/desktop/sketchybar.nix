@@ -6,14 +6,11 @@
       StandardOutPath = "/tmp/sketchybar.log";
       StandardErrorPath = "/tmp/sketchybar.log";
 
-      ProgramArguments =
-        [ "${cfg.package}/bin/sketchybar" ];
-      # ++ optionals (cfg.config != "") ["--config" configFile];
+      ProgramArguments = [ "${pkgs.sketchybar}/bin/sketchybar" ];
       KeepAlive = true;
       RunAtLoad = true;
-      # only to pass gh and jq
       EnvironmentVariables = {
-        PATH = "${cfg.package}/bin:${config.environment.systemPath}:${homeDir}/.nix-profile/bin";
+        PATH = "${pkgs.sketchybar}/bin:${config.environment.systemPath}:/Users/${username}/.nix-profile/bin";
       };
     };
   };
