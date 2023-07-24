@@ -158,9 +158,6 @@
       # icon fonts
       material-design-icons
       font-awesome
-      sketchybar-app-font
-      font-hack-nerd-font
-      sf-symbols
 
       # nerdfonts
       (nerdfonts.override {

@@ -103,7 +103,9 @@
       "postman"
       "visual-studio-code"
 
-      # "sf-symbols" # patched font for sketchybar
+      "sf-symbols" # patched font for sketchybar
+      "sketchybar-app-font"
+      "font-hack-nerd-font"
       "browserosaurus" # choose browser on each link
       "shottr" # screenshot tool
       "vlc" # media player
