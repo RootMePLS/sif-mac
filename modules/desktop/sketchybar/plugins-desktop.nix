@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ username, ... }:
 let
-  folder = "${inputs.sketchybar}/config/sketchybar";
+  folder = "/Users/${username}/.config/sketchybar";
 in
 {
   home.file.plugins-desktop-spotify = {

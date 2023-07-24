@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ username, ... }:
 
 # Based on https://github.com/neutonfoo/dotfiles
 #
