@@ -2,7 +2,8 @@
 
 {
   services = {
-    skhd = {                              # Hotkey daemon
+    # Hotkey daemon
+    skhd = {
       enable = true;
       package = pkgs.skhd;
       skhdConfig = ''
