@@ -27,7 +27,6 @@
 - https://cmacr.ae/blog/keeping-up-appearances-non-native-macos-light-dark-mode/
 - https://cmacr.ae/blog/managing-firefox-on-macos-with-nix/
 - https://the-empire.systems/linux-macos-setup
-- 
 
 ## Configs
 

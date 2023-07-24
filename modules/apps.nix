@@ -24,6 +24,7 @@
     fd
     ripgrep
     pfetch
+    alacritty
   ];
 
   # Environment variables
@@ -31,8 +32,6 @@
     EDITOR = "nvim";
   };
 
-  # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
-  # 
   # The apps installed by homebrew are not managed by nix, and not reproducible!
   # But on macOS, homebrew has a much larger selection of apps than nixpkgs, especially for GUI apps!
   homebrew = {
@@ -49,11 +48,11 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      # TODO Feel free to add your favorite apps here.
       "1password" = 1333542190;
       "Tailscale" = 1475387142;
       "Slack" = 803453959;
       "Telegram" = 747648890;
+      "Yubico Authenticator" = 1497506650;
       # Xcode = 497799835;
     };
 
@@ -84,21 +83,32 @@
     casks = [
       "firefox"
       "google-chrome"
-      "visual-studio-code"
-
+      
       # IM & audio & remote desktop & meeting
       "discord"
       "microsoft-teams"
+      "mutify" # one click mute button
+      "zoom"
 
       "anki"
       "clashx"    # proxy tool
       "openinterminal-lite"  # open current folder in terminal
       "raycast"   # (HotKey: alt/option + space)search, caculate and run scripts(with many plugins)
       "iglance"   # beautiful system monitor
+      "obs" # stream / recoding software
 
       # Development
       "insomnia"  # REST client
       "wireshark"  # network analyzer
+      "postman"
+      "visual-studio-code"
+
+      # "sf-symbols" # patched font for sketchybar
+      "browserosaurus" # choose browser on each link
+      "shottr" # screenshot tool
+      "vlc" # media player
+      "utterly" # background noise cancellation
+      "keycastr" # show keystrokes on screen
     ];
   };
 }

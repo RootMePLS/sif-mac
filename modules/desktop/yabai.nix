@@ -2,10 +2,12 @@
 
 {
   services = {
-    yabai = {                             # Tiling window manager
+    # Tiling window manager
+    yabai = {
       enable = true;
       package = pkgs.yabai;
-      config = {                          # Other configuration options
+      enableScriptingAddition = true;
+      config = {
         layout = "bsp";
         auto_balance = "off";
         split_ratio = "0.50";
@@ -21,9 +23,6 @@
         window_gap = "10";
       };
       extraConfig = ''
-        sudo yabai --load-sa
-        yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-        yabai -m config layout                       float
         yabai -m rule --add app='^Emacs$' manage=on
         yabai -m rule --add title='Preferences' manage=off layer=above
         yabai -m rule --add title='^(Opening)' manage=off layer=above
