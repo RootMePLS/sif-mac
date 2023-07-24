@@ -35,6 +35,7 @@
 - https://github.com/dustinlyons/nixos-config
 - https://github.com/malob/nixpkgs/tree/master/darwin
 - https://github.com/srid/nixos-config
+- https://github.com/FelixKratz/dotfiles/tree/master
 
 ### Explore
 

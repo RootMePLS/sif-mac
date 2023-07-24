@@ -66,7 +66,7 @@
       "homebrew/cask-versions"
 
       # custom
-      "cmacrae/formulae" # spacebar
+      # "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchybar
     ];
