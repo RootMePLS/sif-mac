@@ -36,19 +36,11 @@
 - https://github.com/malob/nixpkgs/tree/master/darwin
 - https://github.com/srid/nixos-config
 - https://github.com/FelixKratz/dotfiles/tree/master
+- https://github.com/yuanw/nix-home
+- https://github.com/neutonfoo/dotfiles
+- https://github.com/r17x/nixpkgs
 
 ### Explore
 
 - https://github.com/tejing1/nixos-config/blob/master/flake.nix
 - https://sr.ht/~cfeeley/dotfiles/
-
-```text
-only use Homebrew for ‘Casks’ (GUI .apps)— `brew cask` subcommand
-don't forget to install GNU coreutils, grep, find, and bash. (BSD coreutils are weird and anemic if you're used to GNU. macOS bash is ancient, etc.)
-disable cursor acceleration (barely works, but it's the only thing that works): https://plentycom.jp/en/cursorsense/index.html
-recover basic key remapping functionality: https://karabiner-elements.pqrs.org/
-recover basic audio controls like per-app volume mixing: https://github.com/kyleneideck/BackgroundMusic
-recover FUSE support: https://osxfuse.github.io/
-recover clipboard management: https://hluk.github.io/CopyQ/
-
-```

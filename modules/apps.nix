@@ -26,6 +26,9 @@
     pfetch
     alacritty
     tmux
+    curl
+    wget
+    httpie
   ];
 
   # Environment variables
@@ -72,11 +75,11 @@
 
     # `brew install`
     # TODO Feel free to add your favorite apps here.
-    brews = [
-      "wget"  # download tool
-      "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
-      "httpie"  # http client
-    ];
+    # brews = [
+    #   "wget"  # download tool
+    #   "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
+    #   "httpie"  # http client
+    # ];
 
     # `brew install --cask`
     # TODO Feel free to add your favorite apps here.
@@ -107,12 +110,15 @@
       "sf-symbols" # patched font for sketchybar
       "font-hack-nerd-font"
       "browserosaurus" # choose browser on each link
-      "shottr" # screenshot tool
+      "flameshot" # screenshot tool
       "vlc" # media player
       "utterly" # background noise cancellation
       "keycastr" # show keystrokes on screen
       "spotify"
       "obsidian"
+      "orbstack"  # https://orbstack.dev/
+      "background-music" # https://github.com/kyleneideck/BackgroundMusic
+      "macfuse" # https://osxfuse.github.io/
     ];
   };
 }

@@ -31,6 +31,26 @@
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
+      
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/github-sign";
+      safe = {
+      directory = "*";
+
+      diff.tool = "vscode";
+          difftool.vscode.cmd =
+            let
+              cmd = "code --wait --diff $LOCAL $REMOTE";
+            in
+            cmd;
+
+      merge.tool = "vscode";
+      mergetool.vscode.cmd =
+        let
+          cmd = "code --wait $MERGED";
+        in
+        cmd;
     };
 
     # signing = {
