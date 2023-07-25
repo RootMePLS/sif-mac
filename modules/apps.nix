@@ -49,7 +49,6 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      "1password" = 1333542190;
       "Tailscale" = 1475387142;
       "Slack" = 803453959;
       "Telegram" = 747648890;
@@ -84,6 +83,8 @@
     casks = [
       "firefox"
       "google-chrome"
+
+      "1password"
       
       # IM & audio & remote desktop & meeting
       "discord"
