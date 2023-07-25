@@ -39,18 +39,18 @@
         yabai -m config insert_feedback_color 0xffd75f5f
 
         # Set all padding and gaps to 20pt (default: 0)
-        yabai -m config top_padding    20
-        yabai -m config bottom_padding 20
-        yabai -m config left_padding   20
-        yabai -m config right_padding  20
-        yabai -m config window_gap     20
+        yabai -m config top_padding    0
+        yabai -m config bottom_padding 0
+        yabai -m config left_padding   0
+        yabai -m config right_padding  0
+        yabai -m config window_gap     0
 
         # modify window shadows (default: on, options: on, off, float)
         yabai -m config window_shadow off
 
         # Layout defines whether windows are tiled ("managed", "bsp") by yabai or left alone ("float"). 
         # This setting can be defined on a per–space basis.
-        yabai -m config layout bsp
+        yabai -m config layout stack
 
         # Auto balance makes it so all windows always occupy the same space (default: off)
         yabai -m config auto_balance off
@@ -76,10 +76,9 @@
         yabai -m rule --add app="Firefox" space=www
         yabai -m rule --add app="Google Chrome" space=www
 
-        yabai -m rule --add app="Visual Studio Code" space=code
+        yabai -m rule --add app="Code" space=code
 
         yabai -m rule --add app="Slack" space=chat
-        yabai -m rule --add app="Slack" space=4
         yabai -m rule --add app="Zoom" space=chat
         yabai -m rule --add app="Discord" space=chat
         yabai -m rule --add app="Telegram" space=chat

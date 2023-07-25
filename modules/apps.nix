@@ -69,7 +69,7 @@
 
       # custom
       # "cmacrae/formulae" # spacebar
-      "koekeishiya/formulae" # yabai
+      # "koekeishiya/formulae" # yabai
       "FelixKratz/formulae" # sketchybar
     ];
 

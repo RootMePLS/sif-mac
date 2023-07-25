@@ -52,7 +52,7 @@
         # fast focus desktop
         cmd - x : yabai -m space --focus recent
         cmd - z : yabai -m space --focus prev
-        cmd - c : yabai -m space --focus next
+        #cmd - c : yabai -m space --focus next
         cmd - 1 : yabai -m space --focus 1
         cmd - 2 : yabai -m space --focus 2
         cmd - 3 : yabai -m space --focus 3
