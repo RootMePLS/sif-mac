@@ -27,6 +27,7 @@
 - https://cmacr.ae/blog/keeping-up-appearances-non-native-macos-light-dark-mode/
 - https://cmacr.ae/blog/managing-firefox-on-macos-with-nix/
 - https://the-empire.systems/linux-macos-setup
+- https://cbrgm.net/post/2021-05-5-setup-macos/
 
 ## Configs
 
@@ -44,3 +45,4 @@
 
 - https://github.com/tejing1/nixos-config/blob/master/flake.nix
 - https://sr.ht/~cfeeley/dotfiles/
+- 

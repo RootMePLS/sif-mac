@@ -13,6 +13,37 @@
         # cmd - tab : yabai -m window --focus stack.next || yabai -m window --focus stack.first
         cmd - left : yabai -m window --focus stack.next
         cmd - right : yabai -m window --focus stack.prev
+        # cmd + shift - k : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.next || yabai -m window --focus stack.first); else yabai -m window --focus next || yabai -m window --focus first; fi
+        # cmd + shift - j : if [ "$(yabai -m query --spaces --space | jq -r '.type')" = "stack" ]; then (yabai -m window --focus stack.prev || yabai -m window --focus stack.last); else yabai -m window --focus prev || yabai -m window --focus last; fi
+
+        # https://github.com/koekeishiya/yabai/issues/203
+        # https://github.com/rriski/dotfiles.fish/blob/main/skhd/skhdrc
+        # alt - k : yabai -m query --spaces --space \
+        #   | jq -re ".index" \
+        #   | xargs -I{} yabai -m query --windows --space {} \
+        #   | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $has_index > 0 then nth($has_index - 1).id else nth($array_length - 1).id end' \
+        #   | xargs -I{} yabai -m window --focus {}
+
+        # alt - j : yabai -m query --spaces --space \
+        #   | jq -re ".index" \
+        #   | xargs -I{} yabai -m query --windows --space {} \
+        #   | jq -sre 'add | map(select(."is-minimized"==false)) | sort_by(.display, .frame.y, .frame.x, .id) | . as $array | length as $array_length | index(map(select(."has-focus"==true))) as $has_index | if $array_length - 1 > $has_index then nth($has_index + 1).id else nth(0).id end' \
+        #   | xargs -I{} yabai -m window --focus {}
+
+
+        # forward
+        # yabai -m query --spaces --space \
+        #   | jq -re ".index" \
+        #   | xargs -I{} yabai -m query --windows --space {} \
+        #   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.x, .id) | reverse | nth(index(map(select(.focused == 1))) - 1).id" \
+        #   | xargs -I{} yabai -m window --focus {}
+
+        # # backward
+        # yabai -m query --spaces --space \
+        #   | jq -re ".index" \
+        #   | xargs -I{} yabai -m query --windows --space {} \
+        #   | jq -sre "add | map(select(.minimized != 1)) | sort_by(.display, .frame.y, .frame.y, .id) | nth(index(map(select(.focused == 1))) - 1).id" \
+        #   | xargs -I{} yabai -m window --focus {}
 
         # focus window
         alt - h : yabai-next-window
