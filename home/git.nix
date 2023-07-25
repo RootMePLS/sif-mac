@@ -37,6 +37,7 @@
       user.signingkey = "~/.ssh/github-sign";
       safe = {
       directory = "*";
+      };
 
       diff.tool = "vscode";
           difftool.vscode.cmd =

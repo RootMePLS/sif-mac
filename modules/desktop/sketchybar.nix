@@ -1,5 +1,7 @@
 { config, pkgs, username, ... }:
 
+## Sketchybar daemon
+## Configuration files ../../home/home/sketchybar
 {
   launchd.user.agents.sketchybar = {
     serviceConfig = {
