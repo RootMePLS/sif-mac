@@ -9,6 +9,11 @@
       skhdConfig = ''
         # alt + a / u / o / s are blocked due to umlaute
 
+        # Cycle windows forwards and backwards in focused stack only
+        # cmd - tab : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+        cmd - left : yabai -m window --focus stack.next
+        cmd - right : yabai -m window --focus stack.prev
+
         # focus window
         alt - h : yabai-next-window
         # alt - h : yabai -m window --focus west
