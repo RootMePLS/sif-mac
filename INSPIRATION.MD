@@ -45,4 +45,23 @@
 
 - https://github.com/tejing1/nixos-config/blob/master/flake.nix
 - https://sr.ht/~cfeeley/dotfiles/
-- 
+
+```
+desktop(){
+    vared -p "Show or hide Desktop? (show/hide): " -c SHOWHIDEDESKTOP
+
+    if [[ "$SHOWHIDEDESKTOP" == "hide" ]]; then
+        defaults write com.apple.finder CreateDesktop false
+        killall Finder
+
+        echo -e "\e[31mDesktop Hidden"
+    else
+        defaults write com.apple.finder CreateDesktop true
+        killall Finder
+
+        echo -e "\e[32mDesktop Visible"
+    fi
+
+    SHOWHIDEDESKTOP=""
+}
+```

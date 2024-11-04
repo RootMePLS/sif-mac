@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./sketchybar.nix
-    ./yabai.nix
-    ./skhd.nix
+    # ./sketchybar.nix
   ];
 }

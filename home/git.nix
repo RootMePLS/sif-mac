@@ -34,7 +34,8 @@
       
       commit.gpgsign = true;
       gpg.format = "ssh";
-      user.signingkey = "~/.ssh/github-sign";
+      gpg."ssh".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+      user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7BZdrPv+RdztZZXexfpqpZJ08x1jiKJYozSmtuNImd";
       safe = {
       directory = "*";
       };
@@ -53,11 +54,6 @@
         in
         cmd;
     };
-
-    # signing = {
-    #   key = "xxx";
-    #   signByDefault = true;
-    # };
 
     delta = {
       enable = true;

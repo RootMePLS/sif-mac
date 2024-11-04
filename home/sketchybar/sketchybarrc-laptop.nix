@@ -82,8 +82,6 @@ in
           icon.padding_right=0 \
           icon.y_offset=1 \
           label.drawing=no \
-          --add item front_app.name left \
-          --set front_app.name \
           background.color=0x00000000 \
           background.padding_right=0 \
           icon.drawing=off \
@@ -113,7 +111,6 @@ in
       sketchybar --add bracket front_app_bracket \
           front_app \
           front_app.separator \
-          front_app.name \
           --subscribe front_app front_app_switched
 
       sketchybar --add item clock right \

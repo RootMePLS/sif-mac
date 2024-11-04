@@ -27,10 +27,10 @@
         show-recents = false;  # disable recent apps
 
         # customize Hot Corners
-        wvous-tl-corner = 2;  # top-left - Mission Control
-        wvous-tr-corner = 13;  # top-right - Lock Screen
-        wvous-bl-corner = 3;  # bottom-left - Application Windows
-        wvous-br-corner = 4;  # bottom-right - Desktop
+        wvous-tl-corner = 1;  # top-left - Mission Control
+        wvous-tr-corner = 1;  # top-right - Lock Screen
+        wvous-bl-corner = 1;  # bottom-left - Application Windows
+        wvous-br-corner = 13;  # bottom-right - Desktop
       };
 
       # customize finder
@@ -40,7 +40,7 @@
         FXEnableExtensionChangeWarning = false;  # disable warning when changing file extension
         QuitMenuItem = true;  # enable quit menu item
         ShowPathbar = true;  # show path bar
-        ShowStatusBar = true;  # show status bar
+        ShowStatusBar = false;  # show status bar
       };
 
       # customize trackpad
@@ -53,12 +53,12 @@
       # customize macOS
       NSGlobalDomain = {
         # `defaults read NSGlobalDomain "xxx"`
-        "com.apple.swipescrolldirection" = true;  # enable natural scrolling(default to true)
+        "com.apple.swipescrolldirection" = false;  # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0;  # disable beep sound when pressing volume up/down key
-        AppleInterfaceStyle = "Dark";  # dark mode
-        AppleKeyboardUIMode = 3;  # Mode 3 enables full keyboard control.
+        # AppleInterfaceStyle = "Dark";  # dark mode
+        # AppleKeyboardUIMode = 3;  # Mode 3 enables full keyboard control.
         ApplePressAndHoldEnabled = true;  # enable press and hold
-        _HIHideMenuBar = true;
+        _HIHideMenuBar = false;
 
         # If you press and hold certain keyboard keys when in a text area, the key’s character begins to repeat.
         # This is very useful for vim users, they use `hjkl` to move cursor.
@@ -129,7 +129,7 @@
 
       # NOTE: do NOT support remap capslock to both control and escape at the same time
       remapCapsLockToControl = false;  # remap caps lock to control, useful for emac users
-      remapCapsLockToEscape  = true;   # remap caps lock to escape, useful for vim users
+      remapCapsLockToEscape  = false;   # remap caps lock to escape, useful for vim users
 
       # swap left command and left alt 
       # so it matches common keyboard layout: `ctrl | command | alt`
@@ -151,10 +151,8 @@
 
   # Fonts
   fonts = {
-    # use fonts specified by user rather than default ones
-    fontDir.enable = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # icon fonts
       material-design-icons
       font-awesome

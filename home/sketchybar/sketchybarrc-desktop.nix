@@ -9,93 +9,83 @@ in
     text = ''
       #!/usr/bin/env zsh
 
-      FONT_FACE="JetBrainsMono Nerd Font"
-      PLUGIN_DIR="${folder}/plugins-desktop"
-      PLUGIN_SHARED_DIR="${folder}/plugins"
+      source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+      source "$CONFIG_DIR/icons.sh" # Loads all defined icons
+
+      # FONT_FACE="JetBrainsMono Nerd Font"
+
+      ITEM_DIR="$CONFIG_DIR/items"
+      PLUGIN_DIR="$CONFIG_DIR/plugins"
+      # PLUGIN_SHARED_DIR="$CONFIG_DIR/plugins"
 
       SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
-      sketchybar --bar \
-          height=32 \
-          color=0x66494d64 \
-          margin=0 \
-          sticky=on \
-          padding_left=0 \
-          padding_right=0 \
-          notch_width=188 \
-          display=main
+      FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+      PADDINGS=3 # All paddings use this value (icon, label, background)
 
-      sketchybar --default \
-          background.height=32 \
-          icon.color=0xff24273a \
-          icon.font="$FONT_FACE:Medium:20.0" \
-          icon.padding_left=5 \
-          icon.padding_right=5 \
-          label.color=0xff24273a \
-          label.font="$FONT_FACE:Bold:14.0" \
-          label.y_offset=1 \
-          label.padding_left=0 \
-          label.padding_right=5
+      # aerospace setting
+      AEROSPACE_FOCUSED_MONITOR_NO=$(aerospace list-workspaces --focused)
+      AEROSPACE_LIST_OF_WINDOWS_IN_FOCUSED_MONITOR=$(aerospace list-windows --workspace $AEROSPACE_FOCUSED_MONITOR_NO | awk -F'|' '{gsub(/^ *| *$/, "", $2); print $2}')
 
-      sketchybar --add item current_space left \
-          --set current_space \
-          background.color=0xfff5a97f \
-          label.drawing=off \
-          script="$PLUGIN_SHARED_DIR/current_space.sh" \
-          --subscribe current_space space_change mouse.clicked
+      # Unload the macOS on screen indicator overlay for volume change
+      launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
-      sketchybar --add item front_app left \
-          --set front_app \
-          background.color=0xffa6da95 \
-          background.padding_left=0 \
-          background.padding_right=0 \
-          icon.y_offset=1 \
-          label.drawing=no \
-          script="$PLUGIN_SHARED_DIR/front_app.sh" \
-          --add item front_app.separator left \
-          --set front_app.separator \
-          background.color=0x00000000 \
-          icon= \
-          icon.color=0xffa6da95 \
-          icon.font="$FONT_FACE:Bold:23.0" \
-          icon.padding_left=0 \
-          icon.padding_right=0 \
-          icon.y_offset=1 \
-          label.drawing=no \
-          --add item front_app.name left \
-          --set front_app.name \
-          background.color=0x00000000 \
-          icon.drawing=off \
-          label.font="$FONT_FACE:Bold:16.0" \
-          label.color=0xffcad3f5 \
-          label.padding_left=5
+      # Setting up the general bar appearance of the bar
+      bar=(
+        height=23
+        color=$BAR_COLOR
+        shadow=on
+        position=top
+        sticky=on
+        padding_right=10
+        padding_left=10
+        corner_radius=9
+        y_offset=3
+        margin=10
+        blur_radius=20
+        notch_width=200
+      )
 
-      sketchybar --add bracket front_app_bracket \
-          front_app \
-          front_app.separator \
-          front_app.name \
-          --subscribe front_app front_app_switched
+      sketchybar --bar "''${bar[@]}"
 
-      sketchybar --add item clock right \
-          --set clock \
-          icon=󰃰 \
-          background.color=0xffed8796 \
-          update_freq=10 \
-          script="$PLUGIN_SHARED_DIR/clock.sh"
+      # Setting up default values
+      defaults=(
+        updates=when_shown
+        icon.font="$FONT:Regular:14.0"
+        icon.color=$ICON_COLOR
+        icon.padding_left=$PADDINS
+        icon.padding_right=$PADDINGS
+        label.font="$FONT:Semibold:13.0"
+        label.color=$LABEL_COLOR
+        label.padding_left=$PADDINGS
+        label.padding_right=$PADDINGS
+        label.shadow.drawing=on
+        label.shadow.distance=2
+        label.shadow.color=0xff000000
+        padding_right=$PADDINGS
+        padding_left=$PADDINGS
+        background.height=26
+        background.corner_radius=9
+        background.border_width=2
+        popup.background.border_width=2
+        popup.background.corner_radius=9
+        popup.background.border_color=$POPUP_BORDER_COLOR
+        popup.background.color=$POPUP_BACKGROUND_COLOR
+        popup.blur_radius=20
+        popup.background.shadow.drawing=on
+        scroll_texts=on
 
-      sketchybar --add event spotify_change $SPOTIFY_EVENT \
-          --add item spotify right \
-          --set spotify \
-          icon= \
-          icon.y_offset=1 \
-          label.drawing=off \
-          label.padding_left=3 \
-          script="$PLUGIN_DIR/spotify.sh" \
-          --subscribe spotify spotify_change mouse.clicked
+      )
+
+      sketchybar --default "''${defaults[@]}"
 
       ##### Finalizing Setup #####
+      source "$ITEM_DIR/apple.sh"
+      source "$ITEM_DIR/spaces.sh"
+      sketchybar --hotload on
+      # Forcing all item scripts to run (never do this outside of sketchybarrc)
       sketchybar --update
-      sketchybar --trigger space_change
+      echo "sketchybar configuation loaded.."
     '';
   };
 }

@@ -14,14 +14,16 @@
   inputs =
     {
       # Default Stable Nix Packages
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
       # Unstable Nix Packages
       nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-      nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+      nix-homebrew = {
+        url = "github:zhaofengli-wip/nix-homebrew";
+        inputs.nixpkgs.follows = "nixpkgs-unstable";
+      };
 
-      # Optional: Declarative tap management
       homebrew-core = {
         url = "github:homebrew/homebrew-core";
         flake = false;
@@ -30,10 +32,14 @@
         url = "github:homebrew/homebrew-cask";
         flake = false;
       };
+      homebrew-bundle = {
+        url = "github:homebrew/homebrew-bundle";
+        flake = false;
+      };
 
       # home-manager, used for managing user configuration
       home-manager = {
-        url = "github:nix-community/home-manager/release-23.05";
+        url = "github:nix-community/home-manager/release-24.05";
         inputs.nixpkgs.follows = "nixpkgs";
       };
 
@@ -58,34 +64,21 @@
 
     };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
     # Variables that can be used in the config files.
     let
       location = "$HOME/.setup";
-      username = "fishhead";
-      hostname = "dmiroshnichenko-laptop";
       system = "aarch64-darwin";
-    in
-    {
-      
-      # darwinConfigurations = (
-      #   import ./darwin {
-      #     inherit (nixpkgs) lib;
-      #     inherit inputs nixpkgs nixpkgs-unstable home-manager darwin user nix-homebrew homebrew-core homebrew-cask;
-      #   }
-      # );
 
-      # Darwin Configurations
-      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+      makeConfig = username: hostname: device_type: darwin.lib.darwinSystem {
         inherit system;
-        specialArgs = { inherit username hostname; };
+        specialArgs = { inherit username hostname device_type; };
         modules = [
           ./modules/nix-core.nix
           ./modules/system.nix
           ./modules/apps.nix
           ./modules/host-users.nix
           ./modules/desktop
-
 
           #  Manage a user environment using Nix.
           #  NOTE: Your can find all available options in:
@@ -95,7 +88,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              inherit inputs username hostname;
+              inherit inputs username hostname device_type;
             };
             home-manager.users.${username} = import ./home;
           }
@@ -116,11 +109,25 @@
 
               # Automatically migrate existing Homebrew installations
               autoMigrate = true;
+
+              # taps = {
+              #   "homebrew/homebrew-core" = homebrew-core;
+              #   "homebrew/homebrew-cask" = homebrew-cask;
+              #   "homebrew/homebrew-bundle" = homebrew-bundle;
+              # };
+              # mutableTaps = false;
             };
           }
         ];
-      };
+      };      
+    in
+    {
 
+      darwinConfigurations = {
+        "dm-laptop" = makeConfig "dm" "dmiroshnichenko-laptop" "laptop";
+        "dm-mac" = makeConfig "dm" "dmiroshnichenko-mac" "desktop";
+      };
+      
       # nix codee formmater
       formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     };
