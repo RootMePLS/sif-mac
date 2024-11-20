@@ -60,57 +60,57 @@ in
 
         # does not support dvorak
         [mode.main.binding]
-        alt-enter     = 'exec-and-forget open -n -a Kitty'
+        cmd-enter     = 'exec-and-forget open -n -a warp'
 
-        alt-q         = 'close'
-        alt-shift-c   = 'reload-config'
+        cmd-q         = 'close'
+        cmd-shift-c   = 'reload-config'
 
-        alt-o         = 'mode resize'
+        cmd-o         = 'mode resize'
 
-        alt-left         = 'focus left'
-        alt-right        = 'focus right'
-        alt-z         = 'focus down'
-        alt-p         = 'focus up'
+        cmd-left         = 'focus left'
+        cmd-right        = 'focus right'
+        cmd-z         = 'focus down'
+        cmd-p         = 'focus up'
 
-        alt-j         = 'split horizontal'
-        alt-period    = 'split vertical'
+        cmd-j         = 'split horizontal'
+        cmd-period    = 'split vertical'
 
-        alt-y         = 'fullscreen'
+        cmd-y         = 'fullscreen'
 
-        alt-k = 'layout v_accordion'               # 'layout stacking' in i3
-        alt-l = 'layout h_accordion'               # 'layout tabbed' in i3#alt-d = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+        cmd-k = 'layout v_accordion'               # 'layout stacking' in i3
+        cmd-l = 'layout h_accordion'               # 'layout tabbed' in i3#cmd-d = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
-        alt-space     = 'layout floating tiling'           # 'floating toggle' in i3
+        cmd-space     = 'layout floating tiling'           # 'floating toggle' in i3
 
         # Not supported, because this command is redundant in AeroSpace mental model.
         # See: https://nikitabobko.github.io/AeroSpace/guide.html#floating-windows
-        # alt-space = 'focus toggle_tiling_floating'
+        # cmd-space = 'focus toggle_tiling_floating'
 
         # `focus parent`/`focus child` are not yet supported, and it's not clear whether they
         # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
-        # alt-a = 'focus parent'
+        # cmd-a = 'focus parent'
 
-        alt-1       = 'workspace 1'
-        alt-2       = 'workspace 2'
-        alt-3       = 'workspace 3'
-        alt-4       = 'workspace 4'
-        alt-5       = 'workspace 5'
-        alt-6       = 'workspace 6'
-        alt-7       = 'workspace 7'
-        alt-8       = 'workspace 8'
-        alt-9       = 'workspace 9'
-        alt-0       = 'workspace 10'
+        cmd-1       = 'workspace 1'
+        cmd-2       = 'workspace 2'
+        cmd-3       = 'workspace 3'
+        cmd-4       = 'workspace 4'
+        cmd-5       = 'workspace 5'
+        cmd-6       = 'workspace 6'
+        cmd-7       = 'workspace 7'
+        cmd-8       = 'workspace 8'
+        cmd-9       = 'workspace 9'
+        cmd-0       = 'workspace 10'
 
-        alt-shift-1 = 'move-node-to-workspace 1'
-        alt-shift-2 = 'move-node-to-workspace 2'
-        alt-shift-3 = 'move-node-to-workspace 3'
-        alt-shift-4 = 'move-node-to-workspace 4'
-        alt-shift-5 = 'move-node-to-workspace 5'
-        alt-shift-6 = 'move-node-to-workspace 6'
-        alt-shift-7 = 'move-node-to-workspace 7'
-        alt-shift-8 = 'move-node-to-workspace 8'
-        alt-shift-9 = 'move-node-to-workspace 9'
-        alt-shift-0 = 'move-node-to-workspace 10'
+        cmd-shift-1 = 'move-node-to-workspace 1'
+        cmd-shift-2 = 'move-node-to-workspace 2'
+        cmd-shift-3 = 'move-node-to-workspace 3'
+        cmd-shift-4 = 'move-node-to-workspace 4'
+        cmd-shift-5 = 'move-node-to-workspace 5'
+        cmd-shift-6 = 'move-node-to-workspace 6'
+        cmd-shift-7 = 'move-node-to-workspace 7'
+        cmd-shift-8 = 'move-node-to-workspace 8'
+        cmd-shift-9 = 'move-node-to-workspace 9'
+        cmd-shift-0 = 'move-node-to-workspace 10'
 
 
         [mode.resize.binding]
