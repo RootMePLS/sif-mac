@@ -14,7 +14,7 @@
   # don't wan't the daemon service to be managed for you.
   # nix.useDaemon = true;
 
-  services.karabiner-elements.enable = true;
+  #services.karabiner-elements.enable = false;
 
   nix.package = pkgs.nix;
 

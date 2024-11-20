@@ -80,7 +80,7 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      "Tailscale" = 1475387142;
+      #"Tailscale" = 1475387142;
       "Slack" = 803453959;
       "Telegram" = 747648890;
       "Yubico Authenticator" = 1497506650;
@@ -107,7 +107,7 @@
       # "curl"  # no not install curl via nixpkgs, it's not working well on macOS!
       # "httpie"  # http client
       "sketchybar"  # https://github.com/FelixKratz/SketchyBar
-      "livekit"     # Scalable, high-performance WebRTC server
+      #"livekit"     # Scalable, high-performance WebRTC server
       "portaudio"   # Cross-platform library for audio I/O https://www.portaudio.com
       "ffmpeg"      # Play, record, convert, and stream audio and video
       "cmake"       # Cross-platform make
@@ -148,7 +148,7 @@
       # "wireshark"        # Network analyzer (commented out)
       # "postman"          # API development environment (commented out)
       "visual-studio-code" # Code editor (commented out)
-      "popclip"            # Used to access context-specific actions when text is selected
+      #"popclip"            # Used to access context-specific actions when text is selected
       "deepl"              # Translation tool
 
       # Utilities
