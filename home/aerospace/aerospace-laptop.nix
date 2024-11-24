@@ -60,7 +60,7 @@ in
 
         # does not support dvorak
         [mode.main.binding]
-        cmd-enter     = 'exec-and-forget open -n -a warp'
+        alt-enter     = 'exec-and-forget open -n -a warp'
 
         cmd-q         = 'close'
         cmd-shift-c   = 'reload-config'
@@ -128,11 +128,22 @@ in
         3  = [1, 'built-in']
         4  = [1, 'built-in']
         5  = [1, 'built-in']
-        6  = [2, 'built-in']
-        7  = [2, 'built-in']
-        8  = [2, 'built-in']
-        9  = [2, 'built-in']
-        10 = [2, 'built-in']  
+        6  = [1, 'built-in']
+        7  = [1, 'built-in']
+        8  = [1, 'built-in']
+        9  = [1, 'built-in']
+        10 = [1, 'built-in']
+
+        # 1  = [1, 'built-in']
+        # 2  = [1, 'built-in']
+        # 3  = [1, 'built-in']
+        # 4  = [1, 'built-in']
+        # 5  = [1, 'built-in']
+        # 6  = [2, 'built-in']
+        # 7  = [2, 'built-in']
+        # 8  = [2, 'built-in']
+        # 9  = [2, 'built-in']
+        # 10 = [2, 'built-in']
 
 
         ## General

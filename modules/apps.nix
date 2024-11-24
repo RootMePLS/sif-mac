@@ -34,12 +34,7 @@
     pfetch                  # System information tool
 
     # Python & Related Packages
-    python3Packages.pip     # Python package installer
-    (python3.withPackages (ps: [
-      ps.flask              # Python web framework
-      ps.markdown           # Markdown processing library for Python
-      ps.weasyprint         # PDF conversion library
-    ]))
+    python313Packages.pip     # Python package installer
 
     # Cloud & Infrastructure Tools
     terraform               # Infrastructure as code tool
@@ -55,7 +50,7 @@
     gobject-introspection   # Library for generating bindings for GObject-based libraries
     cairo                   # 2D graphics library
     pango                   # Text layout and rendering library
-    gdk-pixbuf              # Library for image loading and manipulation
+    gdk-pixbuf              # Libra~ьmnry for image loading and manipulation
     libxml2                 # XML parsing library
   ];
 
@@ -81,7 +76,7 @@
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
       #"Tailscale" = 1475387142;
-      "Slack" = 803453959;
+      #"Slack" = 803453959;
       "Telegram" = 747648890;
       "Yubico Authenticator" = 1497506650;
       # Xcode = 497799835;
