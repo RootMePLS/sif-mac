@@ -13,7 +13,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
@@ -32,14 +32,14 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      # inputs.nixpkgs.follows = "nixpkgs-unstable";
-      # inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
     darwin = {
       url = "github:lnl7/nix-darwin";
-      # inputs.nixpkgs.follows = "nixpkgs-unstable";
-      # inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
     emacs-overlay = {
@@ -54,7 +54,7 @@
     };
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
+  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
     # Variables that can be used in the config files.
     let
       location = "$HOME/.setup";
