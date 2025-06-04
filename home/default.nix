@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, lib, ... }:
 
 {
   ##########################################################################
@@ -36,7 +36,14 @@
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "24.11";
+    stateVersion = "25.05";
+
+
+    # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
+    activation.activateSettings = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      echo "Running activateSettings -u to apply macOS preferences immediately"
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
   };
 
   # Let Home Manager install and manage itself.

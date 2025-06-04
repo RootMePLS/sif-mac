@@ -50,37 +50,37 @@ in
 
         accordion-padding     = 0
 
-        gaps.inner.horizontal = 6
-        gaps.inner.vertical   = 6
-        gaps.outer.left       = 2
-        gaps.outer.bottom     = 2
-        gaps.outer.top        = 2
-        gaps.outer.right      = 2
+        gaps.inner.horizontal = 3
+        gaps.inner.vertical   = 3
+        gaps.outer.left       = 0
+        gaps.outer.bottom     = 0
+        gaps.outer.top        = 0
+        gaps.outer.right      = 0
 
 
         # does not support dvorak
         [mode.main.binding]
-        alt-enter     = 'exec-and-forget open -n -a warp'
+        cmd-shift-enter     = 'exec-and-forget open -n -a warp'
 
-        cmd-q         = 'close'
+        #cmd-shift-q         = 'close'
         cmd-shift-c   = 'reload-config'
 
-        cmd-o         = 'mode resize'
+        #cmd-shift-o         = 'mode resize'
 
         cmd-left         = 'focus left'
         cmd-right        = 'focus right'
-        cmd-z         = 'focus down'
-        cmd-p         = 'focus up'
+        #cmd-z         = 'focus down'
+        #cmd-p         = 'focus up'
 
-        cmd-j         = 'split horizontal'
-        cmd-period    = 'split vertical'
+        cmd-shift-j         = 'split horizontal'
+        cmd-shift-period    = 'split vertical'
 
-        cmd-y         = 'fullscreen'
+        cmd-shift-y         = 'fullscreen'
 
-        cmd-k = 'layout v_accordion'               # 'layout stacking' in i3
-        cmd-l = 'layout h_accordion'               # 'layout tabbed' in i3#cmd-d = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+        cmd-shift-k = 'layout v_accordion'               # 'layout stacking' in i3
+        cmd-shift-l = 'layout h_accordion'               # 'layout tabbed' in i3#cmd-d = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
-        cmd-space     = 'layout floating tiling'           # 'floating toggle' in i3
+        cmd-shift-space     = 'layout floating tiling'           # 'floating toggle' in i3
 
         # Not supported, because this command is redundant in AeroSpace mental model.
         # See: https://nikitabobko.github.io/AeroSpace/guide.html#floating-windows
@@ -188,26 +188,42 @@ in
         if.app-id = 'com.1password.1password'
         run = 'layout floating'
 
+        [[on-window-detected]]
+        if.app-id = 'com.raycast.macos'
+        run = 'layout floating'
+
         ## workspace 1
         [[on-window-detected]]
-        if.app-id = 'org.alacritty'
+        if.app-id = 'org.mozilla.firefox'
         check-further-callbacks = true
-        run = 'move-node-to-workspace 1'
+        run = 'move-node-to-workspace 2'
 
         # [[on-window-detected]]
         # if.app-id = 'com.1password.1password'
         # check-further-callbacks = true
         # run = 'move-node-to-workspace 1'
 
-        ## workspace 2
+        ## workspace 1
         [[on-window-detected]]
-        if.app-id = 'com.brave.Browser'
+        #if.app-id = 'com.brave.Browser'
+        if.app-id = 'com.apple.Safari'
         check-further-callbacks = true
         run = 'move-node-to-workspace 2'
+
+        ## workspace 2
+        [[on-window-detected]]
+        if.app-id = 'com.google.Chrome'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 1']
 
         ## workspace 3
         [[on-window-detected]]
         if.app-id = 'com.microsoft.VSCode'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 3']
+
+        [[on-window-detected]]
+        if.app-id = 'com.todesktop.230313mzl4w4u92'
         check-further-callbacks = true
         run = ['move-node-to-workspace 3']
 
@@ -243,13 +259,28 @@ in
 
         ## workspace 5
         [[on-window-detected]]
-        if.app-id = 'com.spotify.client'
+        if.app-id = 'com.openai.chat'
         check-further-callbacks = true
-        run = 'move-node-to-workspace 5'
+        run = ['move-node-to-workspace 5']
 
-        ## workspace 6
         [[on-window-detected]]
-        if.app-id = 'com.google.Chrome'
+        if.app-id = 'com.anthropic.claudefordesktop'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 5']
+
+        [[on-window-detected]]
+        if.app-id = 'md.obsidian'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 5']
+
+        [[on-window-detected]]
+        if.app-id = 'notion.id'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 5']
+
+        ## workspace 5
+        [[on-window-detected]]
+        if.app-id = 'com.spotify.client'
         check-further-callbacks = true
         run = ['move-node-to-workspace 6']
 
@@ -259,23 +290,17 @@ in
         check-further-callbacks = true
         run = ['move-node-to-workspace 7']
 
+        ## workspace 8
         [[on-window-detected]]
         if.app-id = 'com.apple.mail'
         check-further-callbacks = true
-        run = ['move-node-to-workspace 7']
-
-        ## workspace 8
-        [[on-window-detected]]
-        if.app-id = 'com.openai.chat'
-        check-further-callbacks = true
-        run = ['move-node-to-workspace 8']
-
-        [[on-window-detected]]
-        if.app-id = 'md.obsidian'
-        check-further-callbacks = true
-        run = ['move-node-to-workspace 8']
+        run = ['layout floating','move-node-to-workspace 8']
 
         ## workspace 9
+        [[on-window-detected]]
+        if.app-id = 'com.apple.reminders'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 9']
 
     '';
   };

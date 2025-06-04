@@ -16,7 +16,7 @@
 
     sessionVariables.SSH_AUTH_SOCK = "~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 
-    initExtra = ''
+    initContent = ''
       # Spaceship
       # eval "$(/opt/homebrew/bin/brew shellenv)"
       source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup

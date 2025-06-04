@@ -3,7 +3,7 @@
 {
 
   home.packages = with pkgs; [
-    nodejs
+    # nodejs
     
     nnn # terminal file manager 
     gotools
@@ -49,7 +49,7 @@
       enable = true;
       enableBashIntegration = true;
       git = true;
-      icons = true;
+      icons = "auto";
     };
 
     # skim provides a single executable: sk.

@@ -20,8 +20,8 @@
     # Development Tools
     go                      # Go programming language
     git                     # Version control system
-    emacs                   # Text editor
-    neovim                  # Advanced Vim text editor
+    # emacs                   # Text editor
+    # neovim                  # Advanced Vim text editor
     tmux                    # Terminal multiplexer
 
     # Command-Line Utilities
@@ -29,29 +29,31 @@
     ripgrep                 # Search tool like grep but faster
     curl                    # Command-line tool for transferring data
     wget                    # Network downloader
-    httpie                  # HTTP client for CLI
+    # httpie                  # HTTP client for CLI
     jq                      # Command-line JSON processor
     pfetch                  # System information tool
 
     # Python & Related Packages
-    python313Packages.pip     # Python package installer
+    # python313Packages.pip     # Python package installer
+    # python313Packages.pycodestyle
+    # python313Packages.uvicorn
 
     # Cloud & Infrastructure Tools
-    terraform               # Infrastructure as code tool
-    terragrunt              # Wrapper for Terraform for managing configurations
-    cloud-nuke              # Tool to delete cloud resources
-    awscli2                  # AWS Command Line Interface
-    ansible                 # Automation tool for IT operations
+    # terraform               # Infrastructure as code tool
+    # terragrunt              # Wrapper for Terraform for managing configurations
+    # cloud-nuke              # Tool to delete cloud resources
+    # awscli2                  # AWS Command Line Interface
+    # ansible                 # Automation tool for IT operations
 
     # Package Managers & Project Management
     poetry                  # Python dependency management and packaging tool
 
     # Libraries for Graphics & System
-    gobject-introspection   # Library for generating bindings for GObject-based libraries
-    cairo                   # 2D graphics library
-    pango                   # Text layout and rendering library
-    gdk-pixbuf              # Libra~ьmnry for image loading and manipulation
-    libxml2                 # XML parsing library
+    # gobject-introspection   # Library for generating bindings for GObject-based libraries
+    # cairo                   # 2D graphics library
+    # pango                   # Text layout and rendering library
+    # gdk-pixbuf              # Library for image loading and manipulation
+    # libxml2                 # XML parsing library
   ];
 
   # Environment variables
@@ -75,13 +77,23 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      #"Tailscale" = 1475387142;
-      #"Slack" = 803453959;
+      # "Tailscale" = 1475387142;
+      # "Slack" = 803453959;
+      # "Omnivore" = 1564031042;
+      # "Xcode" = 497799835;
       "Telegram" = 747648890;
       "Yubico Authenticator" = 1497506650;
-      # Xcode = 497799835;
       "Yomu" = 562211012;
-      "Omnivore" = 1564031042;
+      "1Password for Safari" = 1569813296;
+      "Raycast Companion" = 6738274497;
+      "LanguageTool" = 1534275760;
+      "Save to Raindrop.io" = 1549370672;
+      "Keymapp" = 6472865291;
+      "Mate Translate" = 1005088137;
+      "Obsidian Web Clipper " = 6720708363;
+      "WhatsApp" = 310633997;
+      "Remote Desktop Scann" = 1605485521;
+      "Lingopie" = 6449839158;
     };
 
     taps = [
@@ -108,6 +120,10 @@
       "cmake"       # Cross-platform make
       # "autoraise"   # https://github.com/Dimentium/homebrew-autoraise
       "yazi"        # Blazing fast terminal file manager written in Rust, based on async I/O
+      "ruff"
+      "uv"
+      "node"
+      "yt-dlp"
     ];
 
     # `brew install --cask`
@@ -116,7 +132,7 @@
       # Browsers
       "firefox"            # Web browser
       "google-chrome"      # Web browser
-      "brave-browser"      # Web browser focused on privacy
+      #"brave-browser"      # Web browser focused on privacy
 
       # Password Management
       "1password"          # Password manager
@@ -126,7 +142,7 @@
       "discord"            # Chat and voice communication app
       # "microsoft-teams"    # Collaboration and video conferencing tool
       "zoom"               # Video conferencing tool
-      "skype"              # VoIP and chat communication tool
+      # "skype"              # VoIP and chat communication tool
 
       # Remote Desktop & Remote Work
       "nikitabobko/tap/aerospace"  # Remote desktop application
@@ -135,16 +151,16 @@
       "sf-symbols"
 
       # Developer Tools & Productivity
-      "warp"               # Terminal emulator for developers
+      #"warp"               # Terminal emulator for developers
       "raycast"            # Productivity tool for searching, launching apps, and running scripts
       "cursor"             # AI-based tool for code generation and editing
       "replit"             # Cloud-based code editor
-      "insomnia"         # REST client (commented out)
+      # "insomnia"         # REST client (commented out)
       # "wireshark"        # Network analyzer (commented out)
       # "postman"          # API development environment (commented out)
       "visual-studio-code" # Code editor (commented out)
-      #"popclip"            # Used to access context-specific actions when text is selected
-      "deepl"              # Translation tool
+      "popclip"            # Used to access context-specific actions when text is selected
+      # "deepl"              # Translation tool
 
       # Utilities
       "little-snitch"      # Network monitoring tool
@@ -156,7 +172,7 @@
       "rescuetime"         # Time management and productivity tracking tool
       # "sf-symbols"       # Patched font for SketchyBar (commented out)
       # "font-hack-nerd-font" # Nerd font (commented out)
-      # "keycastr"         # Show keystrokes on screen (commented out)
+      "keycastr"         # Show keystrokes on screen (commented out)
 
       # Notes & Organization
       "obsidian"           # Note-taking app for managing markdown files
@@ -165,11 +181,20 @@
       # "macfuse"          # File system integration tool (commented out)
 
       # IM & Audio Tools
-      "raycast"            # For hotkey search, calculation, and script running (alt/option + space)
       # "clashx"           # Proxy tool (commented out)
 
       # Media & Recording
       # "obs"              # Stream and recording software (commented out)
+
+      "chatgpt"
+      "claude"
+      "ghostty"
+      "lm-studio"
+      "msty"
+      "zed"
+      "vlc"
+      "superwhisper"
+
     ];
   };
 
