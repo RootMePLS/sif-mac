@@ -14,7 +14,7 @@
       custom = "$HOME/.config/zsh_nix/custom";
     };
 
-    sessionVariables.SSH_AUTH_SOCK = "~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock";
+    sessionVariables.SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 
     initContent = ''
       # Spaceship
@@ -27,7 +27,6 @@
       export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
       # go env -w GOSUMDB=sum.golang.org
       # go env -w GOPROXY=https://proxy.golang.org,direct
-      export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
       alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
     '';                                         # Zsh theme
   };

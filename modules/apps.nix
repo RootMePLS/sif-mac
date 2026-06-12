@@ -23,6 +23,10 @@
     # emacs                   # Text editor
     # neovim                  # Advanced Vim text editor
     tmux                    # Terminal multiplexer
+    rustc                  # Rust programming language compiler
+    cargo                  # Rust package manager
+    claude-code         # Claude CLI
+    gh
 
     # Command-Line Utilities
     fd                      # Simple, fast and user-friendly alternative to 'find'
@@ -32,6 +36,10 @@
     # httpie                  # HTTP client for CLI
     jq                      # Command-line JSON processor
     pfetch                  # System information tool
+    bun                # Fast all-in-one JavaScript runtime
+
+    cloudflare-warp  #
+    #antigravity      # Agentic development platform, evolving the IDE into the agent-first era
 
     # Python & Related Packages
     # python313Packages.pip     # Python package installer
@@ -42,11 +50,12 @@
     # terraform               # Infrastructure as code tool
     # terragrunt              # Wrapper for Terraform for managing configurations
     # cloud-nuke              # Tool to delete cloud resources
-    # awscli2                  # AWS Command Line Interface
+    awscli2                # AWS Command Line Interface
     # ansible                 # Automation tool for IT operations
+    argocd              # CLI for Argo CD
 
     # Package Managers & Project Management
-    poetry                  # Python dependency management and packaging tool
+    # poetry                  # Python dependency management and packaging tool
 
     # Libraries for Graphics & System
     # gobject-introspection   # Library for generating bindings for GObject-based libraries
@@ -77,22 +86,22 @@
     # otherwise Apple Store will refuse to install them.
     # For details, see https://github.com/mas-cli/mas 
     masApps = {
-      # "Tailscale" = 1475387142;
+      "Tailscale" = 1475387142;
       # "Slack" = 803453959;
       # "Omnivore" = 1564031042;
-      # "Xcode" = 497799835;
+      "Xcode" = 497799835;
       "Telegram" = 747648890;
       "Yubico Authenticator" = 1497506650;
       "Yomu" = 562211012;
       "1Password for Safari" = 1569813296;
       "Raycast Companion" = 6738274497;
-      "LanguageTool" = 1534275760;
+      #"LanguageTool" = 1534275760;
       "Save to Raindrop.io" = 1549370672;
-      "Keymapp" = 6472865291;
-      "Mate Translate" = 1005088137;
-      "Obsidian Web Clipper " = 6720708363;
+      "keymapp" = 6472865291;
+      #"Mate Translate" = 1005088137;
+      "Obsidian Web Clipper" = 6720708363;
       "WhatsApp" = 310633997;
-      "Remote Desktop Scann" = 1605485521;
+      "Remote Desktop Scanner" = 1605485521;
       "Lingopie" = 6449839158;
     };
 
@@ -121,9 +130,12 @@
       # "autoraise"   # https://github.com/Dimentium/homebrew-autoraise
       "yazi"        # Blazing fast terminal file manager written in Rust, based on async I/O
       "ruff"
-      "uv"
-      "node"
-      "yt-dlp"
+      "uv"           # Fast, correct, flexible linter for Python
+      "node"         # JavaScript runtime built on Chrome's V8 JavaScript engine
+      "yt-dlp"       # Command-line program to download videos from YouTube and other video platforms
+      "pkg-config"  # Helper tool used when compiling applications and libraries
+      "git-lfs"      # Git extension for versioning large files
+      "googleworkspace-cli" # CLI for Google Workspace
     ];
 
     # `brew install --cask`
@@ -172,7 +184,7 @@
       "rescuetime"         # Time management and productivity tracking tool
       # "sf-symbols"       # Patched font for SketchyBar (commented out)
       # "font-hack-nerd-font" # Nerd font (commented out)
-      "keycastr"         # Show keystrokes on screen (commented out)
+      #"keycastr"         # Show keystrokes on screen (commented out)
 
       # Notes & Organization
       "obsidian"           # Note-taking app for managing markdown files

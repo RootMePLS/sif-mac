@@ -17,44 +17,19 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
-    homebrew-bundle = {
-      url = "github:homebrew/homebrew-bundle";
-      flake = false;
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      flake = false;
-    };
-
-    doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
-    };
   };
 
-  outputs = inputs @ { self, nixpkgs, nixpkgs-unstable, home-manager, darwin, doom-emacs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
+  outputs = inputs @ { nixpkgs, home-manager, darwin, nix-homebrew, ... }:   # Function that tells my flake which to use and what do what to do with the dependencies.
     # Variables that can be used in the config files.
     let
       location = "$HOME/.setup";
@@ -99,13 +74,6 @@
 
               # Automatically migrate existing Homebrew installations
               autoMigrate = true;
-
-              # taps = {
-              #   "homebrew/homebrew-core" = homebrew-core;
-              #   "homebrew/homebrew-cask" = homebrew-cask;
-              #   "homebrew/homebrew-bundle" = homebrew-bundle;
-              # };
-              # mutableTaps = false;
             };
           }
         ];

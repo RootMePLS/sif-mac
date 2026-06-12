@@ -6,7 +6,6 @@
     # nodejs
     
     nnn # terminal file manager 
-    gotools
     gopls
     go-outline
     gopkgs
@@ -35,7 +34,7 @@
     gnutar
     gawk
     zstd
-    caddy
+    # caddy
     gnupg
 
     # productivity

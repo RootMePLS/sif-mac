@@ -229,6 +229,13 @@ in
         check-further-callbacks = true
         run = ['move-node-to-workspace 3']
 
+        ## workspace 3
+        [[on-window-detected]]
+        if.app-id = 'dev.zed.Zed'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 3']
+        
+
         ## workspace 4
         [[on-window-detected]]
         if.app-id = 'com.tinyspeck.slackmacgap'
@@ -292,6 +299,13 @@ in
         if.app-id = 'md.obsidian'
         check-further-callbacks = true
         run = ['move-node-to-workspace 8']
+
+        [[on-window-detected]]
+        if.app-id = 'com.apple.Notes'
+        check-further-callbacks = true
+        run = ['move-node-to-workspace 0']
+
+        
 
         ## workspace 9
 

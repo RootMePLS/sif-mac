@@ -15,37 +15,53 @@
     enable = true;
     lfs.enable = true;
 
-    # TODO replace with your own name & email
-    userName = "Dmitrii Miroshnichenko";
-    userEmail = "dm@revizto.com";
+    settings = {
+      # TODO replace with your own name & email
+      user.name = "Dmitrii Miroshnichenko";
+      user.email = "dm@revizto.com";
+      
+      aliases = {
+        # common aliases
+        br = "branch";
+        co = "checkout";
+        st = "status";
+        ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
+        ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
+        cm = "commit -m";
+        ca = "commit -am";
+        dc = "diff --cached";
+        amend = "commit --amend -m";
 
-    includes = [
-      {
-        # use diffrent email & name for work
-        path = "~/work/.gitconfig";
-        condition = "gitdir:~/work/";
-      }
-    ];
+        # aliases for submodule
+        update = "submodule update --init --recursive";
+        foreach = "submodule foreach";
+      };
 
-    extraConfig = {
+      delta = {
+        enable = true;
+        options = {
+          features = "side-by-side";
+        };
+      };
+
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
       pull.rebase = true;
-      
+
       commit.gpgsign = true;
       gpg.format = "ssh";
       gpg."ssh".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
       user.signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC7BZdrPv+RdztZZXexfpqpZJ08x1jiKJYozSmtuNImd";
       safe = {
-      directory = "*";
+        directory = "*";
       };
 
       diff.tool = "vscode";
-          difftool.vscode.cmd =
-            let
-              cmd = "code --wait --diff $LOCAL $REMOTE";
-            in
-            cmd;
+      difftool.vscode.cmd =
+        let
+          cmd = "code --wait --diff $LOCAL $REMOTE";
+        in
+        cmd;
 
       merge.tool = "vscode";
       mergetool.vscode.cmd =
@@ -54,29 +70,14 @@
         in
         cmd;
     };
+    
+    includes = [
+      {
+        # use diffrent email & name for work
+        path = "~/work/.gitconfig";
+        condition = "gitdir:~/work/";
+      }
+    ];
 
-    delta = {
-      enable = true;
-      options = {
-        features = "side-by-side";
-      };
-    };
-
-    aliases = {
-      # common aliases
-      br = "branch";
-      co = "checkout";
-      st = "status";
-      ls = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate";
-      ll = "log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat";
-      cm = "commit -m";
-      ca = "commit -am";
-      dc = "diff --cached";
-      amend = "commit --amend -m";
-
-      # aliases for submodule
-      update = "submodule update --init --recursive";
-      foreach = "submodule foreach";
-    };
   };
 }
